@@ -173,4 +173,5 @@ This tool allows users to input processes, run multiple scheduling algorithms si
 
 10.1  This project is open-source and available under the MIT License. Feel free to modify and distribute.
 
+<img width="1914" height="1148" alt="image" src="https://github.com/user-attachments/assets/ed8dd7e8-c5d8-4b2a-af2f-c40281d6fbe7" />
 
