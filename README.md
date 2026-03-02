@@ -22,7 +22,7 @@ This tool allows users to input processes, run multiple scheduling algorithms si
 
 3.1. Interactive GUI built with Tkinter
 
-3.2. Six scheduling algorithms:
+3.2. Four scheduling algorithms:
 
     (i)  First Come First Serve (FCFS)
 
@@ -31,10 +31,6 @@ This tool allows users to input processes, run multiple scheduling algorithms si
     (iii)  Preemptive Shortest Job First (SRTF)
 
     (iv)  Round Robin (with single or multiple quantum comparison)
-
-    (v)  Priority by Process ID (smaller ID = higher priority)
-
-    (vi)  Priority by Age (newer processes have higher priority only when arrival times are equal)
     
 3.3. Per-time-unit timeline showing arrivals, context switches, and remaining burst times
 
