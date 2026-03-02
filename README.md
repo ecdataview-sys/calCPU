@@ -1,6 +1,4 @@
-###############################################
-##### CPU Scheduling Algorithms Simulator #####
-###############################################
+# CPU Scheduling Algorithms Simulator 
 
 # 1. Purpose of this Simulator
 
