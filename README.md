@@ -57,27 +57,20 @@ This tool allows users to input processes, run multiple scheduling algorithms si
 
 # 4. Requirements
 
-4.1  I am using Python version 3.10.  You may use this version or higher version for running my Simulator.
+4.1  Python 3.10 or later
 
-4.2  Adopted the following packages. You may download and import the same, if applicable:
+4.2  matplotlib
 
-      (i)  tkinter (usually included with Python)
-
-      (ii)  matplotlib openpyxl
-
-      (iii)  numpy
-
-4.3  Install missing packages using pip:
-
-              pip install matplotlib numpy
-              pip install matplotlib openpyxl pillow
+4.3  openpyxl
 
               
 # 5. Installation
 
 5.1  Download the source codes.
 
-5.2  Ensure all dependencies are installed.
+5.2  Install dependencies with:
+
+            pip install -r requirements.txt
 
 5.3  Run the script via Python
             
