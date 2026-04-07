@@ -70,6 +70,7 @@ This tool allows users to input processes, run multiple scheduling algorithms si
 4.3  Install missing packages using pip:
 
               pip install matplotlib numpy
+              pip install matplotlib openpyxl pillow
 
               
 # 5. Installation
@@ -170,8 +171,38 @@ This tool allows users to input processes, run multiple scheduling algorithms si
 
 # 11. Examples and Preview
 
-<img width="1914" height="1148" alt="image" src="https://github.com/user-attachments/assets/ed8dd7e8-c5d8-4b2a-af2f-c40281d6fbe7" />
+11.1 Main Layout 
 
-<img width="1917" height="1147" alt="image" src="https://github.com/user-attachments/assets/2c64fa28-4d32-4672-b544-21334554bfe3" />
+<img width="940" height="590" alt="image" src="https://github.com/user-attachments/assets/eb0abfed-c6e6-4013-a66a-17b441616b7d" />
+<img width="940" height="826" alt="image" src="https://github.com/user-attachments/assets/58f1b22a-2898-4765-afc0-e113715d1493" />
+<img width="940" height="828" alt="image" src="https://github.com/user-attachments/assets/b7cde14b-a184-40ca-999a-7b144205762c" />
+<img width="1355" height="826" alt="image" src="https://github.com/user-attachments/assets/d15c1c52-e313-459f-ac65-29ef0fc98327" />
+<img width="1363" height="828" alt="image" src="https://github.com/user-attachments/assets/866100c6-6256-4621-aba4-eb682ef9588e" />
+
+11.2 Export to Excel
+<img width="799" height="461" alt="image" src="https://github.com/user-attachments/assets/876bd9c9-762d-424f-b71a-88f31553f436" />
+<img width="816" height="581" alt="image" src="https://github.com/user-attachments/assets/1e44cbd2-ff75-4d01-b6e8-4b3913ee244c" />
+<img width="814" height="454" alt="image" src="https://github.com/user-attachments/assets/c1a265a5-2f28-47c3-a0b4-d6f7a4a30b5d" />
+
+11.3 Export to PDF
+<img width="814" height="467" alt="image" src="https://github.com/user-attachments/assets/31c131dd-6ed4-42a1-b0d7-d9422acd17ba" />
+<img width="814" height="391" alt="image" src="https://github.com/user-attachments/assets/c834f7a3-4ec4-43ec-866b-07aea36fad7c" />
+<img width="814" height="636" alt="image" src="https://github.com/user-attachments/assets/fa67edd0-e673-4975-9522-6cb8221bb968" />
+<img width="814" height="398" alt="image" src="https://github.com/user-attachments/assets/8169c0cc-ac34-4726-9137-7c5cb0ab281d" />
+<img width="814" height="497" alt="image" src="https://github.com/user-attachments/assets/a60dd096-ed9a-4bc3-bc22-e9ebcec5ec75" />
+<img width="814" height="392" alt="image" src="https://github.com/user-attachments/assets/88c74661-520f-424f-a1ca-2426f0df0a14" />
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
