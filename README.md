@@ -90,54 +90,84 @@ This tool allows users to input processes, run multiple scheduling algorithms si
 6.1. Add Processes
         
         Fill in the form in the left panel:
+        
         •	Arrival Time - When the process arrives (≥ 0)
+        
         •	Burst Time - CPU time needed (positive integer)
+        
         •	Priority - Lower number = higher priority
         
         Click "Add / Update" or press Enter.
         
 6.2. Quick Setup Options
+
         •	Load Sample Set - Loads 5 pre-configured test processes
+        
         •	Random - Generates a random process
+        
         •	Import CSV - Load from CSV file
         
 6.3. Select Algorithm & Run
+
         •	Choose an algorithm from the dropdown
+        
         •	For Round Robin, set the time quantum (default: 2)
+        
         •	Click "Run Simulation"
         
 6.4. Explore Results
-        Use the notebook tabs:
+        
         •	Dashboard - Gantt chart and metrics for selected algorithm
+        
         •	Comparison - Compare all six algorithms
+        
         •	Execution Log - Timeline view
+        
         •	Result Table - Per-process statistics
         
 6.5. Export Reports
+
         •	Export to Excel - Complete workbook with all results and charts
+        
         •	Export to PDF - Multi-page PDF report
+
 
 
 
 # 7. Algorithms
 
+
 7.1. Understanding the Metrics
+
         Metric              Description                                    Ideal
+        
         Waiting Time        Time spent in ready queue	                   Lower
+        
         Response Time	    Time until first CPU allocation	               Lower
+        
         Turnaround Time	    Total time from arrival to completion	       Lower
+        
         CPU Utilization	    Percentage of time CPU is busy	               Higher
+        
         Throughput	        Processes completed per time unit	           Higher
 
+
 7.2. Algorithm Selection Guide
+
         Use Case	                                            Recommended Algorithm
+        
         Batch systems, simple implementation	                FCFS
+        
         Minimizing average waiting time	                        SJF / SRTF
+        
         Interactive/Time-sharing systems	                    Round Robin
+        
         Real-time/Urgent tasks	                                Priority (Preemptive)
+        
         Mixed workload analysis	                                Compare all using Comparison tab
 
              
+
 
 # 8. Output Interpretation
 
@@ -148,11 +178,17 @@ This tool allows users to input processes, run multiple scheduling algorithms si
 8.3  Results Table: For each process:
 
       (i)  Start time
+      
       (ii)  completion time
+      
       (iii)  Turnaround time = completion - arrival
+      
       (iv)  Waiting time = turnaround - burst
+      
       (v)  Response time = first start - arrival
+      
       (vi)  Averages: Average turnaround, waiting, and response times for the algorithm.
+
 
 
 # 9. Points to Note
@@ -164,12 +200,15 @@ This tool allows users to input processes, run multiple scheduling algorithms si
 9.3  The simulator assumes time is discrete in 1-unit steps for timeline granularity.
 
 
+
 # 10. License
 
 10.1  This project is open-source and available under the MIT License. Feel free to modify and distribute.
 
 
+
 # 11. Examples and Preview
+
 
 11.1 Main Layout 
 
@@ -179,10 +218,14 @@ This tool allows users to input processes, run multiple scheduling algorithms si
 <img width="1355" height="826" alt="image" src="https://github.com/user-attachments/assets/d15c1c52-e313-459f-ac65-29ef0fc98327" />
 <img width="1363" height="828" alt="image" src="https://github.com/user-attachments/assets/866100c6-6256-4621-aba4-eb682ef9588e" />
 
+
+
 11.2 Export to Excel
 <img width="799" height="461" alt="image" src="https://github.com/user-attachments/assets/876bd9c9-762d-424f-b71a-88f31553f436" />
 <img width="816" height="581" alt="image" src="https://github.com/user-attachments/assets/1e44cbd2-ff75-4d01-b6e8-4b3913ee244c" />
 <img width="814" height="454" alt="image" src="https://github.com/user-attachments/assets/c1a265a5-2f28-47c3-a0b4-d6f7a4a30b5d" />
+
+
 
 11.3 Export to PDF
 <img width="814" height="467" alt="image" src="https://github.com/user-attachments/assets/31c131dd-6ed4-42a1-b0d7-d9422acd17ba" />
