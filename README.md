@@ -57,7 +57,7 @@ This tool allows users to input processes, run multiple scheduling algorithms si
 
 # 4. Requirements
 
-4.1  I am using Python version 3.7.8.  You may use this version or higher version for running my Simulator.
+4.1  I am using Python version 3.10.  You may use this version or higher version for running my Simulator.
 
 4.2  Adopted the following packages. You may download and import the same, if applicable:
 
