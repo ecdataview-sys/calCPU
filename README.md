@@ -212,6 +212,7 @@ This tool allows users to input processes, run multiple scheduling algorithms si
 
 11.1 Main Layout 
 
+
 <img width="940" height="590" alt="image" src="https://github.com/user-attachments/assets/eb0abfed-c6e6-4013-a66a-17b441616b7d" />
 
 <img width="940" height="826" alt="image" src="https://github.com/user-attachments/assets/58f1b22a-2898-4765-afc0-e113715d1493" />
@@ -226,6 +227,7 @@ This tool allows users to input processes, run multiple scheduling algorithms si
 
 11.2 Export to Excel
 
+
 <img width="799" height="461" alt="image" src="https://github.com/user-attachments/assets/876bd9c9-762d-424f-b71a-88f31553f436" />
 
 <img width="816" height="581" alt="image" src="https://github.com/user-attachments/assets/1e44cbd2-ff75-4d01-b6e8-4b3913ee244c" />
@@ -235,6 +237,8 @@ This tool allows users to input processes, run multiple scheduling algorithms si
 
 
 11.3 Export to PDF
+
+
 <img width="814" height="467" alt="image" src="https://github.com/user-attachments/assets/31c131dd-6ed4-42a1-b0d7-d9422acd17ba" />
 
 <img width="814" height="391" alt="image" src="https://github.com/user-attachments/assets/c834f7a3-4ec4-43ec-866b-07aea36fad7c" />
