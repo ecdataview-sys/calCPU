@@ -1,5 +1,5 @@
 from collections import deque
-from models import Process, GanttEntry
+from models import GanttEntry
 
 
 class Scheduler:
@@ -8,16 +8,17 @@ class Scheduler:
             p.reset()
 
         procs.sort(key=lambda x: (x.arrival_time, x.pid))
-        # initialize
+
+        if mode == 'RR':
+            return self._run_rr(procs, quantum)
+
         gantt = []
         log = []
-        ready_queue = deque() if mode == 'RR' else []
+        ready_queue = []
         not_arrived = list(procs)
         current_proc = None
         time = 0
-        time_in_quantum = 0
-        
-        # 未到
+
         while not_arrived or ready_queue or current_proc:
             arrivals = []
             for p in not_arrived[:]:
@@ -28,7 +29,7 @@ class Scheduler:
             if arrivals:
                 log.append((time, 'Arrival', '-', str(arrivals)))
 
-            if mode != 'RR' and ready_queue:
+            if ready_queue:
                 if mode == 'FCFS':
                     ready_queue.sort(key=lambda x: (x.arrival_time, x.pid))
                 elif mode == 'SJF_NP' and current_proc is None:
@@ -46,23 +47,18 @@ class Scheduler:
                     preempt = True
                 elif mode == 'PRIORITY_P' and ready_queue[0].priority < current_proc.priority:
                     preempt = True
-                elif mode == 'RR' and time_in_quantum >= quantum:
-                    preempt = True
 
                 if preempt:
                     ready_queue.append(current_proc)
                     log.append((time, 'Preemption', f'P{current_proc.pid}', str([p.pid for p in ready_queue])))
                     current_proc = None
-                    time_in_quantum = 0
-                    if mode != 'RR' and ready_queue:
-                        if mode == 'SRTF':
-                            ready_queue.sort(key=lambda x: (x.remaining_time, x.arrival_time, x.pid))
-                        elif mode == 'PRIORITY_P':
-                            ready_queue.sort(key=lambda x: (x.priority, x.arrival_time, x.pid))
+                    if mode == 'SRTF':
+                        ready_queue.sort(key=lambda x: (x.remaining_time, x.arrival_time, x.pid))
+                    elif mode == 'PRIORITY_P':
+                        ready_queue.sort(key=lambda x: (x.priority, x.arrival_time, x.pid))
 
             if current_proc is None and ready_queue:
-                current_proc = ready_queue.popleft() if mode == 'RR' else ready_queue.pop(0)
-                time_in_quantum = 0
+                current_proc = ready_queue.pop(0)
                 if current_proc.start_time == -1:
                     current_proc.start_time = time
                     current_proc.response_time = current_proc.start_time - current_proc.arrival_time
@@ -71,7 +67,6 @@ class Scheduler:
             if current_proc:
                 gantt.append(GanttEntry(current_proc.pid, time, time + 1))
                 current_proc.remaining_time -= 1
-                time_in_quantum += 1
                 if current_proc.remaining_time <= 0:
                     current_proc.remaining_time = 0
                     current_proc.completion_time = time + 1
@@ -79,13 +74,63 @@ class Scheduler:
                     current_proc.waiting_time = current_proc.turnaround_time - current_proc.burst_time
                     log.append((time + 1, 'Completion', f'P{current_proc.pid}', str([p.pid for p in ready_queue])))
                     current_proc = None
-                    time_in_quantum = 0
             else:
                 gantt.append(GanttEntry(-1, time, time + 1))
 
             time += 1
 
-        # Merge consecutive same-pid entries
+        return self._finalize(procs, gantt, log)
+
+    def _run_rr(self, procs, quantum):
+        gantt = []
+        log = []
+        ready_queue = deque()
+        not_arrived = list(procs)
+        time = 0
+
+        while not_arrived or ready_queue:
+            while not_arrived and not_arrived[0].arrival_time <= time:
+                p = not_arrived.pop(0)
+                ready_queue.append(p)
+                log.append((time, 'Arrival', '-', str([p.pid])))
+
+            if not ready_queue:
+                gantt.append(GanttEntry(-1, time, time + 1))
+                time += 1
+                continue
+
+            p = ready_queue.popleft()
+
+            if p.start_time == -1:
+                p.start_time = time
+                p.response_time = p.start_time - p.arrival_time
+
+            log.append((time, 'Execution Start', f'P{p.pid}', str([x.pid for x in ready_queue])))
+
+            run_time = min(quantum, p.remaining_time)
+
+            for _ in range(run_time):
+                gantt.append(GanttEntry(p.pid, time, time + 1))
+                p.remaining_time -= 1
+                time += 1
+
+            if p.remaining_time == 0:
+                p.completion_time = time
+                p.turnaround_time = p.completion_time - p.arrival_time
+                p.waiting_time = p.turnaround_time - p.burst_time
+                log.append((time, 'Completion', f'P{p.pid}', str([x.pid for x in ready_queue])))
+            else:
+                ready_queue.append(p)
+                log.append((time, 'Preemption', f'P{p.pid}', str([x.pid for x in ready_queue])))
+
+            while not_arrived and not_arrived[0].arrival_time <= time:
+                q = not_arrived.pop(0)
+                ready_queue.append(q)
+                log.append((time, 'Arrival', '-', str([q.pid])))
+
+        return self._finalize(procs, gantt, log)
+
+    def _finalize(self, procs, gantt, log):
         merged_gantt = []
         if gantt:
             curr = GanttEntry(gantt[0].pid, gantt[0].start_time, gantt[0].end_time)
