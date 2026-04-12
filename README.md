@@ -249,7 +249,7 @@ This tool allows users to input processes, run multiple scheduling algorithms si
 
 # 12. YouTube Introduction Video
 
-    [Watch the demo on YouTube](https://youtu.be/qHGrHQg-ExI)
+[Watch the demo on YouTube](https://youtu.be/qHGrHQg-ExI)
 
 
 
